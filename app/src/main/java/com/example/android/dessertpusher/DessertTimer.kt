@@ -54,9 +54,10 @@ class DessertTimer(lifecycle: Lifecycle) : LifecycleObserver {
         // Add this as a lifecycle Observer, which allows for the class to react to changes in this
         // activity's lifecycle state
         lifecycle.addObserver(this)
+
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+  //  @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun startTimer() {
         // Create the runnable action, which prints out a log and increments the seconds counter
         runnable = Runnable {
@@ -75,10 +76,15 @@ class DessertTimer(lifecycle: Lifecycle) : LifecycleObserver {
         // In this case, no looper is defined, and it defaults to the main or UI thread.
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+   // @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     fun stopTimer() {
         // Removes all pending posts of runnable from the handler's queue, effectively stopping the
         // timer
         handler.removeCallbacks(runnable)
+    }
+
+   // @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    fun experiment(){
+        Timber.i("good bye .....")
     }
 }
